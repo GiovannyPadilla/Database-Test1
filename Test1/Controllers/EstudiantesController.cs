@@ -48,7 +48,7 @@ namespace Test1.Controllers
         // GET: Estudiantes/Create
         public IActionResult Create()
         {
-            ViewData["carreraId"] = new SelectList(_context.Set<Carrera>(), "id", "id");
+            ViewData["carreraId"] = new SelectList(_context.Set<Carrera>(), "id", "Nombre");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace Test1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["carreraId"] = new SelectList(_context.Set<Carrera>(), "id", "id", estudiante.carreraId);
+            ViewData["carreraId"] = new SelectList(_context.Set<Carrera>(), "id", "Nombre", estudiante.carreraId);
             return View(estudiante);
         }
 
